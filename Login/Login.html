@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="Login.css" />
+  </head>
+  <body>
+    <form>
+      <h2>Welcome back</h2>
+
+      <!-- Email -->
+      <label for="email">Email</label><br />
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="example@gmail.com"
+      /><br /><br />
+
+      <!-- Password -->
+      <label for="password">Password</label><br />
+      <input type="password" id="password" name="password" /><br /><br />
+
+      <!-- Remember me -->
+      <input type="checkbox" id="remember" name="remember" />
+      <label for="remember">Remember me</label><br /><br />
+
+      <!-- Forgot password -->
+      <a href="#">Forgot password?</a><br /><br />
+
+      <!-- Login button -->
+      <button type="button" onclick="login()">Login</button><br /><br />
+
+      <!-- Sign up -->
+      <p>Don’t have an account? <a href="#">Sign up now</a></p>
+    </form>
+
+    <!-- Script nằm ngoài form -->
+    <script src="script.js"></script>
+  </body>
+</html>

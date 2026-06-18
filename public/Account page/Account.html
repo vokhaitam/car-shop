@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Account - Autohub</title>
+    <link rel="stylesheet" href="Account.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-wrapper">
+          <div class="logo">
+            <i class="fas fa-car-side"></i>
+            <span>Autohub</span>
+          </div>
+
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="../Home page/Home.html" class="nav-link">
+                <i class="fas fa-home"></i> Homepage
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../Shopping page/Shopping.html" class="nav-link">
+                <i class="fas fa-shopping-cart"></i> Shopping cart
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link active">
+                <i class="fas fa-user"></i> Account
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../Contact page/Contact.htm" class="nav-link">
+                <i class="fas fa-envelope"></i> Contact
+              </a>
+            </li>
+          </ul>
+
+          <button class="btn-login">
+            <i class="fas fa-sign-in-alt"></i> Login
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="account-container">
+      <div class="container">
+        <div class="account-grid">
+          <!-- Left Sidebar -->
+          <div class="account-sidebar">
+            <div class="profile-card">
+              <div class="profile-avatar">
+                <i class="fas fa-user-circle"></i>
+              </div>
+              <h2 class="profile-name">Vo Khai Tam</h2>
+              <p class="profile-member">Customer since March 2024</p>
+
+              <div class="profile-stats">
+                <div class="stat-item">
+                  <div class="stat-number">15</div>
+                  <div class="stat-label">Viewed Cars</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-number">5</div>
+                  <div class="stat-label">favorite</div>
+                </div>
+              </div>
+
+              <button class="btn-modify-profile" id="modify-profile-btn">
+                <i class="fas fa-user-edit"></i> Modify Profile
+              </button>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+              <h3>Quick Actions</h3>
+              <button
+                class="quick-action-btn"
+                onclick="scrollToSection('appointments')"
+              >
+                <i class="fas fa-calendar-check"></i>
+                <span>View Appointments</span>
+              </button>
+              <button
+                class="quick-action-btn"
+                onclick="scrollToSection('favorites')"
+              >
+                <i class="fas fa-heart"></i>
+                <span>My Favorites</span>
+              </button>
+              <button
+                class="quick-action-btn"
+                onclick="scrollToSection('settings')"
+              >
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Main Content -->
+          <div class="account-main">
+            <!-- Personal Information -->
+            <div class="section-card" id="personal-info">
+              <h3 class="section-title">
+                <i class="fas fa-user"></i>
+                Personal Information
+              </h3>
+
+              <div class="info-grid">
+                <div class="info-group">
+                  <label>
+                    <i class="fas fa-user"></i>
+                    Full name
+                  </label>
+                  <input type="text" value="Vo Khai Tam" readonly />
+                </div>
+
+                <div class="info-group">
+                  <label>
+                    <i class="fas fa-envelope"></i>
+                    Email
+                  </label>
+                  <input type="email" value="Tamvo2104@gmail.com" readonly />
+                </div>
+
+                <div class="info-group">
+                  <label>
+                    <i class="fas fa-phone"></i>
+                    Phone number
+                  </label>
+                  <input type="tel" value="0954511739" readonly />
+                </div>
+
+                <div class="info-group highlighted">
+                  <label>
+                    <i class="fas fa-map-marker-alt"></i>
+                    Location
+                  </label>
+                  <input type="text" value="hcm/dong nai" readonly />
+                </div>
+              </div>
+
+              <button class="btn-edit-info" id="edit-personal-info">
+                <i class="fas fa-edit"></i> Edit Information
+              </button>
+            </div>
+
+            <!-- Car Viewing Appointments -->
+            <div class="section-card" id="appointments">
+              <h3 class="section-title">
+                <i class="fas fa-calendar-alt"></i>
+                Car Viewing Appointment
+              </h3>
+
+              <div class="appointments-list">
+                <div class="appointment-item">
+                  <div class="appointment-info">
+                    <h4>Mercedes-Benz C-Class</h4>
+                    <p><i class="fas fa-calendar"></i> 20/03/2024 at 14:00</p>
+                  </div>
+                  <div class="appointment-status confirmed">
+                    <i class="fas fa-check-circle"></i>
+                    Confirmed
+                  </div>
+                </div>
+
+                <div class="appointment-item">
+                  <div class="appointment-info">
+                    <h4>BMW 5 Series</h4>
+                    <p><i class="fas fa-calendar"></i> 25/03/2024 at 10:00</p>
+                  </div>
+                  <div class="appointment-status pending">
+                    <i class="fas fa-clock"></i>
+                    Pending Confirmation
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn-schedule" id="schedule-appointment">
+                <i class="fas fa-plus"></i> Schedule New Appointment
+              </button>
+            </div>
+
+            <!-- Favorite Cars -->
+            <div class="section-card" id="favorites">
+              <h3 class="section-title">
+                <i class="fas fa-heart"></i>
+                Favorite Car
+              </h3>
+
+              <div class="favorites-grid">
+                <div class="favorite-car-card">
+                  <div class="favorite-car-image">
+                    <img
+                      src="https://images.unsplash.com/photo-1606664515524-ed13df1b4b0f?w=300"
+                      alt="Audi A6"
+                    />
+                  </div>
+                  <div class="favorite-car-info">
+                    <h4>Audi A6</h4>
+                    <p class="car-price">2,150,000,000₫</p>
+                  </div>
+                  <button class="btn-remove-favorite">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+
+                <div class="favorite-car-card">
+                  <div class="favorite-car-image">
+                    <img
+                      src="https://images.unsplash.com/photo-1621007949302-1d0b96e1dfe0?w=300"
+                      alt="Toyota Camry"
+                    />
+                  </div>
+                  <div class="favorite-car-info">
+                    <h4>Toyota Camry</h4>
+                    <p class="car-price">2,125,000,000₫</p>
+                  </div>
+                  <button class="btn-remove-favorite">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+
+                <div class="favorite-car-card">
+                  <div class="favorite-car-image">
+                    <img
+                      src="https://images.unsplash.com/photo-1555215695-3004980adade?w=300"
+                      alt="BMW 5 Series"
+                    />
+                  </div>
+                  <div class="favorite-car-info">
+                    <h4>BMW 5 Series</h4>
+                    <p class="car-price">2,450,000,000₫</p>
+                  </div>
+                  <button class="btn-remove-favorite">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+              </div>
+
+              <a href="Home.html" class="btn-browse-cars">
+                <i class="fas fa-search"></i> Browse More Cars
+              </a>
+            </div>
+
+            <!-- Account Settings -->
+            <div class="section-card" id="settings">
+              <h3 class="section-title">
+                <i class="fas fa-cog"></i>
+                Account Settings
+              </h3>
+
+              <div class="settings-menu">
+                <button class="settings-item" id="change-password-btn">
+                  <i class="fas fa-lock"></i>
+                  <span>Change Password</span>
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <button class="settings-item" id="transaction-history-btn">
+                  <i class="fas fa-receipt"></i>
+                  <span>Transaction History</span>
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <button class="settings-item" id="manage-favorites-btn">
+                  <i class="fas fa-heart"></i>
+                  <span>Manage Favorites</span>
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <button class="settings-item" id="viewing-history-btn">
+                  <i class="fas fa-history"></i>
+                  <span>Car Viewing History</span>
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal" id="edit-profile-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><i class="fas fa-user-edit"></i> Edit Profile</h2>
+          <button class="modal-close" id="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="edit-profile-form">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="edit-name" value="Vo Khai Tam" required />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input
+                type="email"
+                id="edit-email"
+                value="Tamvo2104@gmail.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" id="edit-phone" value="0954511739" required />
+            </div>
+            <div class="form-group">
+              <label>Location</label>
+              <input
+                type="text"
+                id="edit-location"
+                value="hcm/dong nai"
+                required
+              />
+            </div>
+            <button type="submit" class="btn-save">
+              <i class="fas fa-save"></i> Save Changes
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div class="modal" id="change-password-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><i class="fas fa-lock"></i> Change Password</h2>
+          <button class="modal-close" id="modal-close-password">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="change-password-form">
+            <div class="form-group">
+              <label>Current Password</label>
+              <input type="password" id="current-password" required />
+            </div>
+            <div class="form-group">
+              <label>New Password</label>
+              <input type="password" id="new-password" required />
+            </div>
+            <div class="form-group">
+              <label>Confirm New Password</label>
+              <input type="password" id="confirm-password" required />
+            </div>
+            <button type="submit" class="btn-save">
+              <i class="fas fa-key"></i> Change Password
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="Account.js"></script>
+  </body>
+</html>

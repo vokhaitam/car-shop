@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Autohub</title>
+    <link rel="stylesheet" href="Contact.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-wrapper">
+          <div class="logo">
+            <i class="fas fa-car-side"></i>
+            <span>Autohub</span>
+          </div>
+
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="../Home page/Home.html" class="nav-link">
+                <i class="fas fa-home"></i> Homepage
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../Shopping page/Shopping.html" class="nav-link">
+                <i class="fas fa-shopping-cart"></i> Shopping cart
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../Account page/Account.html" class="nav-link">
+                <i class="fas fa-user"></i> Account
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../Contact page/Contact.html" class="nav-link active">
+                <i class="fas fa-envelope"></i> Contact
+              </a>
+            </li>
+          </ul>
+
+          <button class="btn-login">
+            <i class="fas fa-sign-in-alt"></i> Login
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1 class="header-title">Contact Autohub</h1>
+        <p class="header-subtitle">
+          Our professional consulting team is always ready to assist you
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="contact-methods">
+      <div class="container">
+        <div class="methods-grid">
+          <!-- Email -->
+          <div class="method-card active" data-method="email">
+            <div class="method-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h3 class="method-title">Email</h3>
+            <p class="method-info">sales@autohub.vn</p>
+            <div class="method-overlay">
+              <i class="fas fa-check-circle"></i>
+            </div>
+          </div>
+
+          <!-- Hotline -->
+          <div class="method-card" data-method="hotline">
+            <div class="method-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <h3 class="method-title">Hotline</h3>
+            <p class="method-info">1900xxxx</p>
+            <div class="method-overlay">
+              <i class="fas fa-check-circle"></i>
+            </div>
+          </div>
+
+          <!-- Showroom -->
+          <div class="method-card" data-method="showroom">
+            <div class="method-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3 class="method-title">Showroom</h3>
+            <p class="method-info">728 Hoàng Lê Kha, Quận 6, TP.HCM</p>
+            <div class="method-overlay">
+              <i class="fas fa-check-circle"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="contact-main">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Left: Consultation Form -->
+          <div class="consultation-section">
+            <div class="section-card">
+              <h2 class="section-title">
+                <i class="fas fa-clipboard-list"></i>
+                Register for consultation
+              </h2>
+
+              <form id="consultation-form">
+                <div class="form-group">
+                  <label for="fullname">Full name</label>
+                  <input
+                    type="text"
+                    id="fullname"
+                    placeholder="Enter full name"
+                    required
+                  />
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="example@gmail.com"
+                      required
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="phone">Phone number</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      placeholder="0123456789"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="car-model">Car model of interest</label>
+                  <div class="select-wrapper">
+                    <select id="car-model" required>
+                      <option value="">Choose car model</option>
+                      <option value="mercedes-c">Mercedes-Benz C-Class</option>
+                      <option value="bmw-5">BMW 5 Series</option>
+                      <option value="audi-a6">Audi A6</option>
+                      <option value="toyota-camry">Toyota Camry</option>
+                      <option value="honda-accord">Honda Accord</option>
+                      <option value="mazda-6">Mazda 6</option>
+                    </select>
+                    <i class="fas fa-chevron-down"></i>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="content">Content</label>
+                  <textarea
+                    id="content"
+                    rows="6"
+                    placeholder="Enter consultation content..."
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">
+                  <i class="fas fa-paper-plane"></i> Send request
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Right: Info & Services -->
+          <div class="info-section">
+            <!-- Working Hours -->
+            <div class="info-card">
+              <h3 class="card-title">
+                <i class="fas fa-clock"></i>
+                Working hours
+              </h3>
+              <div class="hours-table">
+                <div class="hours-row">
+                  <span class="day">From Monday to Friday</span>
+                  <span class="time">8:00 - 19:00</span>
+                </div>
+                <div class="hours-row">
+                  <span class="day">Saturday and Sunday</span>
+                  <span class="time">8:00 - 20:00</span>
+                </div>
+                <div class="hours-row">
+                  <span class="day">Holiday</span>
+                  <span class="time">9:00 - 18:00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Services -->
+            <div class="info-card">
+              <h3 class="card-title">
+                <i class="fas fa-concierge-bell"></i>
+                Our Services
+              </h3>
+              <div class="services-list">
+                <div class="service-item">
+                  <i class="fas fa-check-circle"></i>
+                  <div>
+                    <h4>Free Consultation</h4>
+                    <p>24/7 Expert Consulting Team</p>
+                  </div>
+                </div>
+                <div class="service-item">
+                  <i class="fas fa-car"></i>
+                  <div>
+                    <h4>Home Test Drive</h4>
+                    <p>Schedule a free home test drive</p>
+                  </div>
+                </div>
+                <div class="service-item">
+                  <i class="fas fa-percentage"></i>
+                  <div>
+                    <h4>Installment Support</h4>
+                    <p>0% interest - Flexible terms</p>
+                  </div>
+                </div>
+                <div class="service-item">
+                  <i class="fas fa-shield-alt"></i>
+                  <div>
+                    <h4>Official Warranty</h4>
+                    <p>Official Warranty and Maintenance</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Special Offer -->
+            <div class="offer-card">
+              <div class="offer-badge">🎁</div>
+              <h3 class="offer-title">Special Offer</h3>
+              <p class="offer-desc">
+                Schedule today to receive offers up to
+                <strong>100 million VND</strong>
+              </p>
+              <button class="btn-offer" id="get-offer-btn">
+                <i class="fas fa-gift"></i> Get Offer Now
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Modal -->
+    <div class="modal" id="success-modal">
+      <div class="modal-content">
+        <div class="modal-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h2 class="modal-title">Request Sent Successfully!</h2>
+        <p class="modal-desc">
+          Our consulting team will contact you within 24 hours. Thank you for
+          choosing Autohub!
+        </p>
+        <button class="btn-close-modal" id="close-success-modal">
+          <i class="fas fa-times"></i> Close
+        </button>
+      </div>
+    </div>
+
+    <script src="Contact.js"></script>
+  </body>
+</html>

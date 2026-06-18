@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif; /* Chọn font chữ */
+  background-color: #f0f0f0; /* Màu nền xám nhạt */
+  display: flex; /* Dùng flexbox để căn giữa */
+  justify-content: center; /* Căn ngang giữa */
+  align-items: center; /* Căn dọc giữa */
+  height: 100vh;
+}
+form {
+  text-align: center;
+  color: rgb(27, 27, 27);
+  background-color: rgb(182, 183, 183);
+  border-radius: 10px;
+  box-shadow: 0 0 10px;
+  width: 400px;
+  height: 600px;
+}
+h2 {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+label {
+  text-align: left;
+  padding-left: 20px;
+  display: block;
+}
+#email {
+  display: block;
+  width: calc(100% - 30px);
+  margin: 0% 20px 15px 20px; /* cách đều trái/phải 20px, dưới 15px */
+  padding: 13px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+#password {
+  display: block;
+  width: calc(100% - 30px);
+  margin: 0 20px 15px 20px; /* cách đều trái/phải 20px, dưới 15px */
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+#remember {
+  display: inline-flex; /* để chữ và checkbox nằm cùng hàng */
+  align-items: center; /* căn giữa theo chiều dọc */
+  font-size: 14px; /* chỉnh cỡ chữ nếu cần */
+}
+
+#remember input[type="checkbox"] {
+  margin-left: 8px; /* tạo khoảng cách giữa chữ và checkbox */
+}

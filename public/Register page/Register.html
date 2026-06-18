@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="stylesheet" href="Register.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="main-container">
+      <!-- Phần bên trái: Ảnh -->
+      <div class="image-section">
+        <img
+          src="https://cdn.donmai.us/original/09/2b/092b12a8a38771ea72e8051649d1f7bc.jpg"
+          alt="Anime Art"
+        />
+        <div class="image-overlay">
+          <h2>Welcome to MyWeb!</h2>
+          <p>How are you today?</p>
+        </div>
+      </div>
+
+      <!-- Phần bên phải: Form đăng ký -->
+      <div class="form-section">
+        <div class="register-container">
+          <h1 class="title">Register</h1>
+          <p class="subtitle">
+            Fill in the details below to create your account
+          </p>
+
+          <form>
+            <div class="form-group">
+              <label for="fullname">Full name</label>
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  id="fullname"
+                  placeholder="Enter your name"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <div class="input-wrapper">
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="Enter your mail address"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <div class="input-wrapper">
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Create a password"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <div class="input-wrapper">
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  placeholder="Confirm your password"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone number</label>
+              <div class="input-wrapper">
+                <input
+                  type="tel"
+                  id="phone"
+                  placeholder="0123456789"
+                  pattern="[0-9]{10}"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="location">Location</label>
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  id="location"
+                  placeholder="Your address / City"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="dob">Date of birth</label>
+              <div class="input-wrapper">
+                <input type="date" id="dob" />
+              </div>
+            </div>
+
+            <div class="checkbox-group">
+              <input type="checkbox" id="terms" />
+              <label for="terms"
+                >I agree to the <a href="#">Terms of service policy</a></label
+              >
+            </div>
+
+            <button type="submit" class="register-btn">register</button>
+          </form>
+
+          <div class="divider">
+            <span>or continue with</span>
+          </div>
+
+          <div class="social-buttons">
+            <a href="/api/auth/google" class="social-btn google">
+              <i class="fab fa-google"></i> Google
+            </a>
+            <!-- ĐÃ SỬA: button -> a, thêm href -->
+            <a href="/api/auth/facebook" class="social-btn facebook">
+              <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+            <button type="button" class="social-btn apple">
+              <i class="fab fa-apple"></i> Apple
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="Register.js"></script>
+  </body>
+</html>

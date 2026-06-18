@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart - Autohub</title>
+    <link rel="stylesheet" href="Shopping.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="nav-wrapper">
+          <div class="logo">
+            <i class="fas fa-car-side"></i>
+            <span>Autohub</span>
+          </div>
+
+          <ul class="nav-menu">
+            <li class="nav-item">
+              <a href="../Home page/Home.html" class="nav-link">
+                <i class="fas fa-home"></i> Homepage
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../Shopping page/Shopping.html" class="nav-link active">
+                <i class="fas fa-shopping-cart"></i> Shopping cart
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../Account page/Account.html" class="nav-link">
+                <i class="fas fa-user"></i> Account
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../Contact page/Contact.htm" class="nav-link">
+                <i class="fas fa-envelope"></i> Contact
+              </a>
+            </li>
+          </ul>
+
+          <button class="btn-login">
+            <i class="fas fa-sign-in-alt"></i> Login
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="shopping-container">
+      <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+          <h1 class="page-title">
+            <i class="fas fa-shopping-cart"></i>
+            Your Shopping Cart
+          </h1>
+          <p class="page-subtitle" id="cart-count">
+            2 vehicles in your selected list
+          </p>
+        </div>
+
+        <div class="shopping-grid">
+          <!-- Cart Items -->
+          <div class="cart-items-section">
+            <div class="section-header">
+              <h2>Selected Vehicles</h2>
+              <div class="cart-actions">
+                <button class="btn-icon" id="clear-cart" title="Clear all">
+                  <i class="fas fa-trash"></i> Clear all
+                </button>
+              </div>
+            </div>
+
+            <div class="cart-items" id="cart-items">
+              <!-- Item 1 -->
+              <div class="cart-item" data-id="1">
+                <div class="item-image">
+                  <img
+                    src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=300"
+                    alt="Mercedes-Benz C-Class"
+                  />
+                  <div class="item-badge">Best Seller</div>
+                </div>
+                <div class="item-details">
+                  <h3 class="item-name">Mercedes-Benz C-Class</h3>
+                  <div class="item-specs">
+                    <span><i class="fas fa-calendar"></i> 2024</span>
+                    <span><i class="fas fa-gas-pump"></i> Gasoline</span>
+                    <span><i class="fas fa-cog"></i> Automatic</span>
+                  </div>
+                  <div class="item-rating">
+                    <i class="fas fa-star"></i>
+                    <span>4.9 (128 reviews)</span>
+                  </div>
+                </div>
+                <div class="item-price-section">
+                  <div class="item-price">1,850,000,000₫</div>
+                  <div class="item-actions">
+                    <button class="btn-remove" data-id="1">
+                      <i class="fas fa-trash-alt"></i> Remove
+                    </button>
+                    <button class="btn-save-later" data-id="1">
+                      <i class="fas fa-heart"></i> Save for later
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="cart-item" data-id="2">
+                <div class="item-image">
+                  <img
+                    src="https://images.unsplash.com/photo-1555215695-3004980adade?w=300"
+                    alt="BMW 5 Series"
+                  />
+                </div>
+                <div class="item-details">
+                  <h3 class="item-name">BMW 5 Series</h3>
+                  <div class="item-specs">
+                    <span><i class="fas fa-calendar"></i> 2024</span>
+                    <span><i class="fas fa-gas-pump"></i> Gasoline</span>
+                    <span><i class="fas fa-cog"></i> Automatic</span>
+                  </div>
+                  <div class="item-rating">
+                    <i class="fas fa-star"></i>
+                    <span>4.8 (96 reviews)</span>
+                  </div>
+                </div>
+                <div class="item-price-section">
+                  <div class="item-price">2,450,000,000₫</div>
+                  <div class="item-actions">
+                    <button class="btn-remove" data-id="2">
+                      <i class="fas fa-trash-alt"></i> Remove
+                    </button>
+                    <button class="btn-save-later" data-id="2">
+                      <i class="fas fa-heart"></i> Save for later
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Continue Shopping -->
+            <div class="continue-shopping">
+              <a href="Home.html" class="btn-continue">
+                <i class="fas fa-arrow-left"></i> Continue Shopping
+              </a>
+            </div>
+
+            <!-- Saved Items -->
+            <div
+              class="saved-items-section"
+              id="saved-section"
+              style="display: none"
+            >
+              <h3><i class="fas fa-heart"></i> Saved for Later</h3>
+              <div class="saved-items" id="saved-items">
+                <!-- Saved items will appear here -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Order Summary -->
+          <div class="order-summary-section">
+            <div class="summary-card">
+              <h2 class="summary-title">
+                <i class="fas fa-receipt"></i>
+                Payment Information
+              </h2>
+
+              <div class="summary-details">
+                <div class="summary-row">
+                  <span>Total vehicles value:</span>
+                  <span class="amount" id="subtotal">4,300,000,000₫</span>
+                </div>
+                <div
+                  class="summary-row discount"
+                  id="discount-row"
+                  style="display: none"
+                >
+                  <span>Discount (10%):</span>
+                  <span class="amount discount-amount" id="discount-amount"
+                    >-430,000,000₫</span
+                  >
+                </div>
+                <div class="summary-row">
+                  <span>Registration fee (10%):</span>
+                  <span class="amount" id="registration-fee">430,000,000₫</span>
+                </div>
+                <div class="summary-row">
+                  <span>Insurance:</span>
+                  <span class="amount" id="insurance">50,000,000₫</span>
+                </div>
+                <div class="summary-divider"></div>
+                <div class="summary-row total">
+                  <span>Total amount:</span>
+                  <span class="amount total-amount" id="total-amount"
+                    >4,780,000,000₫</span
+                  >
+                </div>
+              </div>
+
+              <!-- Installment Calculator -->
+              <div class="installment-calculator">
+                <h3><i class="fas fa-calculator"></i> Installment Support</h3>
+                <p class="installment-desc">0% interest, 20% down payment</p>
+
+                <div class="installment-options">
+                  <div class="installment-option active" data-months="12">
+                    <div class="option-header">
+                      <span>12 months</span>
+                      <i class="fas fa-check"></i>
+                    </div>
+                    <div class="option-price">~398,333,333₫/month</div>
+                  </div>
+                  <div class="installment-option" data-months="24">
+                    <div class="option-header">
+                      <span>24 months</span>
+                    </div>
+                    <div class="option-price">~199,166,667₫/month</div>
+                  </div>
+                  <div class="installment-option" data-months="36">
+                    <div class="option-header">
+                      <span>36 months</span>
+                    </div>
+                    <div class="option-price">~132,777,778₫/month</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Promo Code -->
+              <div class="promo-section">
+                <div class="promo-input">
+                  <input
+                    type="text"
+                    id="promo-code"
+                    placeholder="Enter promo code"
+                  />
+                  <button class="btn-apply-promo" id="apply-promo">
+                    Apply
+                  </button>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="summary-actions">
+                <button class="btn-primary btn-checkout" id="schedule-viewing">
+                  <i class="fas fa-calendar-check"></i>
+                  Schedule a car viewing
+                </button>
+                <button class="btn-secondary btn-consultation">
+                  <i class="fas fa-comments"></i>
+                  Direct consultation
+                </button>
+              </div>
+
+              <!-- Trust Badges -->
+              <div class="trust-badges">
+                <div class="badge">
+                  <i class="fas fa-shield-alt"></i>
+                  <span>Secure Payment</span>
+                </div>
+                <div class="badge">
+                  <i class="fas fa-undo"></i>
+                  <span>7-Day Return</span>
+                </div>
+                <div class="badge">
+                  <i class="fas fa-certificate"></i>
+                  <span>Genuine Cars</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Need Help -->
+            <div class="help-card">
+              <h3><i class="fas fa-question-circle"></i> Need Help?</h3>
+              <p>Our car experts are here to assist you</p>
+              <div class="help-contacts">
+                <a href="tel:+84123456789" class="help-contact">
+                  <i class="fas fa-phone"></i>
+                  <span>+84 123 456 789</span>
+                </a>
+                <a href="mailto:support@autohub.com" class="help-contact">
+                  <i class="fas fa-envelope"></i>
+                  <span>support@autohub.com</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for Scheduling -->
+    <div class="modal" id="schedule-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2><i class="fas fa-calendar-check"></i> Schedule a Car Viewing</h2>
+          <button class="modal-close" id="modal-close">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form id="schedule-form">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input
+                type="text"
+                id="schedule-name"
+                placeholder="Enter your full name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input
+                type="tel"
+                id="schedule-phone"
+                placeholder="Enter your phone number"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input
+                type="email"
+                id="schedule-email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Preferred Date</label>
+              <input type="date" id="schedule-date" required />
+            </div>
+            <div class="form-group">
+              <label>Preferred Time</label>
+              <select id="schedule-time" required>
+                <option value="">Select a time</option>
+                <option value="09:00">9:00 AM - 11:00 AM</option>
+                <option value="13:00">1:00 PM - 3:00 PM</option>
+                <option value="15:00">3:00 PM - 5:00 PM</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Location</label>
+              <select id="schedule-location" required>
+                <option value="">Select showroom</option>
+                <option value="hanoi">Autohub Hanoi</option>
+                <option value="hcm">Autohub Ho Chi Minh</option>
+                <option value="danang">Autohub Da Nang</option>
+              </select>
+            </div>
+            <button type="submit" class="btn-submit">
+              <i class="fas fa-check"></i> Confirm Appointment
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="Shopping.js"></script>
+  </body>
+</html>

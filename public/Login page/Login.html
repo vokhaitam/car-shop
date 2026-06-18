@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Autohub</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="Login.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <!-- Phần bên trái: Form đăng nhập (40%) -->
+      <div class="form-section">
+        <div class="login-container">
+          <div class="logo">
+            <div class="icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="white"
+                stroke-width="2"
+              >
+                <path
+                  d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"
+                />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </div>
+          </div>
+          <h1 class="title">Welcome Back</h1>
+          <p class="subtitle">Sign in to continue to Autohub</p>
+
+          <form class="login-form">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <div class="input-wrapper">
+                <i class="fas fa-envelope input-icon"></i>
+                <input type="email" id="email" placeholder="Enter your email" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <div class="input-wrapper">
+                <i class="fas fa-lock input-icon"></i>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Enter your password"
+                />
+              </div>
+              <div class="form-options">
+                <label class="remember-me">
+                  <input type="checkbox" />
+                  <span>Remember me</span>
+                </label>
+                <a href="#" class="forgot-password">Forgot password?</a>
+              </div>
+            </div>
+
+            <button type="submit" class="login-btn">
+              <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+
+            <div class="divider">
+              <span>Or continue with</span>
+            </div>
+            <div class="social-buttons">
+              <a href="/api/auth/google" class="social-btn google">
+                <i class="fab fa-google"></i> Google
+              </a>
+              <!-- ĐÃ SỬA: button -> a, thêm href -->
+              <a href="/api/auth/facebook" class="social-btn facebook">
+                <i class="fab fa-facebook-f"></i> Facebook
+              </a>
+              <button type="button" class="social-btn apple">
+                <i class="fab fa-apple"></i> Apple
+              </button>
+            </div>
+
+            <p class="signup-text">
+              Don't have an account?
+              <a href="../Register page/Register.html">Sign up now</a>
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <!-- Phần bên phải: Ảnh (60%) -->
+      <div class="image-section">
+        <img
+          src="https://symbols.vn/wp-content/uploads/2021/12/Hinh-bau-troi-hoang-hon-Anime-lang-man-nhat.jpg"
+          alt="Sunset"
+        />
+        <div class="image-overlay">
+          <i class="fas fa-car-side welcome-icon"></i>
+          <h2>Autohub</h2>
+          <p>
+            Your trusted partner in finding the perfect car. Experience the
+            journey with us.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="Login.js"></script>
+    <script>
+      if (localStorage.getItem("token")) {
+        window.location.href = "/Home page/Home.html";
+      }
+    </script>
+  </body>
+</html>
