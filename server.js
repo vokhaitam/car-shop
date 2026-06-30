@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 console.log(
   "GOOGLE_CLIENT_ID:",
   process.env.GOOGLE_CLIENT_ID?.substring(0, 20) + "...",
@@ -7,6 +8,7 @@ console.log(
   "GOOGLE_CLIENT_SECRET:",
   process.env.GOOGLE_CLIENT_SECRET?.substring(0, 10) + "...",
 );
+
 const express = require("express");
 const session = require("express-session");
 const passport = require("./config/passport");
@@ -34,9 +36,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
+// Routes auth (Google + Facebook)
 app.use("/api/auth", authRoutes);
 
-// Route đăng nhập bằng Google (gọi từ link trong Login.html)
+// Route đăng nhập Google
 app.get(
   "/api/auth/google",
   passport.authenticate("google", { scope: ["profile", "email"] }),
@@ -59,12 +62,7 @@ app.get("/api/auth/logout", (req, res) => {
   });
 });
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "Home page", "Home.html"));
-});
-
-app.listen(3000, () => console.log("Server chạy ở http://localhost:3000"));
-// Facebook routes
+// Route Facebook
 app.get("/api/auth/facebook", passport.authenticate("facebook", { scope: [] }));
 app.get(
   "/api/auth/facebook/callback",
@@ -75,3 +73,18 @@ app.get(
     res.redirect("/Home page/Home.html");
   },
 );
+
+// Trang chủ
+app.get("/", (req, res) => {
+  res.redirect("/Login page/Login.html");
+});
+
+// ⚠️ Nếu bạn muốn dùng Clerk cho route /protected, bỏ comment phần dưới
+// const { ClerkExpressRequireAuth } = require("@clerk/express");
+// app.get("/protected", ClerkExpressRequireAuth(), (req, res) => {
+//   res.send(`Hello user ${req.auth.userId}`);
+// });
+
+// Khởi động server (chỉ một lần duy nhất)
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server chạy ở http://localhost:${PORT}`));
