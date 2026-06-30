@@ -2,7 +2,10 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
+
+// SỬA ĐÚNG: dùng "../models/userModels" (hai chấm, KHÔNG phải ba chấm)
 const { createUser, findUserByEmail } = require("../models/userModels");
+
 const router = express.Router();
 
 router.post("/register", async (req, res) => {
@@ -43,13 +46,16 @@ router.post("/login", async (req, res) => {
     );
     res.json({ success: true, token });
   } catch (err) {
+    console.error(err);
     res.status(500).json({ error: "Server error" });
   }
 });
 
-module.exports = router;
+// Logout route
 router.get("/logout", (req, res) => {
   req.logout(() => {
     res.redirect("/Login page/Login.html");
   });
 });
+
+module.exports = router;
