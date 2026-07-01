@@ -80,10 +80,10 @@ app.get("/", (req, res) => {
 });
 
 // ⚠️ Nếu bạn muốn dùng Clerk cho route /protected, bỏ comment phần dưới
-// const { ClerkExpressRequireAuth } = require("@clerk/express");
-// app.get("/protected", ClerkExpressRequireAuth(), (req, res) => {
-//   res.send(`Hello user ${req.auth.userId}`);
-// });
+const { ClerkExpressRequireAuth } = require("@clerk/express");
+app.get("/protected", ClerkExpressRequireAuth(), (req, res) => {
+  res.send(`Hello user ${req.auth.userId}`);
+});
 
 // Khởi động server (chỉ một lần duy nhất)
 const PORT = process.env.PORT || 3000;
