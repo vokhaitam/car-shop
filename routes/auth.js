@@ -2,13 +2,9 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
-const path = require("path");
 
-// ==================== REQUIRE MODELS ====================
-const { createUser, findUserByEmail } = require(
-  path.join(__dirname, "../models/userModels"),
-);
-// =======================================================
+// SỬA ĐƯỜNG DẪN Ở ĐÂY
+const { createUser, findUserByEmail } = require("../models/userModels");
 
 const router = express.Router();
 
