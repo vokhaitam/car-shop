@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const passport = require("passport");
 
 // SỬA ĐƯỜNG DẪN Ở ĐÂY
-const { createUser, findUserByEmail } = require("../models/userModels");
+const { createUser, findUserByEmail } = require("../models/usermodels");
 
 const router = express.Router();
 
