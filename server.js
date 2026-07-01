@@ -24,7 +24,10 @@ app.use(
     secret: process.env.SESSION_SECRET || "secret_key",
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: false }, // secure: true nếu dùng HTTPS
+    cookie: {
+      secure: false, // secure: true nếu dùng HTTPS
+      maxAge: 24 * 60 * 60 * 1000, // 1 ngày
+    },
   }),
 );
 
@@ -34,6 +37,7 @@ app.use(passport.session());
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // Routes auth (Google + Facebook)
@@ -79,12 +83,17 @@ app.get("/", (req, res) => {
   res.redirect("/Login page/Login.html");
 });
 
-// ⚠️ Nếu bạn muốn dùng Clerk cho route /protected, bỏ comment phần dưới
+// ⚠️ Clerk - ĐÃ COMMENT ĐỂ TRÁNH LỖI
+// Nếu muốn dùng Clerk, bỏ comment và config Clerk API Key trong Environment
+/*
 const { ClerkExpressRequireAuth } = require("@clerk/express");
 app.get("/protected", ClerkExpressRequireAuth(), (req, res) => {
   res.send(`Hello user ${req.auth.userId}`);
 });
+*/
 
-// Khởi động server (chỉ một lần duy nhất)
+// Khởi động server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server chạy ở http://localhost:${PORT}`));
+app.listen(PORT, () => {
+  console.log(`✅ Server chạy ở port ${PORT}`);
+});

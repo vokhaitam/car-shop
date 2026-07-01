@@ -1,6 +1,6 @@
 const { Pool } = require("pg");
 
-// Kết nối PostgreSQL (Render sẽ tự inject DATABASE_URL)
+// Kết nối PostgreSQL
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl:
@@ -10,22 +10,27 @@ const pool = new Pool({
 });
 
 // Tạo bảng users nếu chưa có
-pool
-  .query(
-    `
-  CREATE TABLE IF NOT EXISTS users (
-    id SERIAL PRIMARY KEY,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    fullname VARCHAR(255),
-    phone VARCHAR(20),
-    address TEXT,
-    role VARCHAR(50) DEFAULT 'user',
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-  )
-`,
-  )
-  .catch((err) => console.error("Table creation error:", err));
+const initDB = async () => {
+  try {
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        email VARCHAR(255) UNIQUE NOT NULL,
+        password VARCHAR(255) NOT NULL,
+        fullname VARCHAR(255),
+        phone VARCHAR(20),
+        address TEXT,
+        role VARCHAR(50) DEFAULT 'user',
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+    console.log("✅ Database initialized successfully");
+  } catch (err) {
+    console.error("❌ Error creating table:", err.message);
+  }
+};
+
+initDB();
 
 // Hàm tạo user mới
 async function createUser(email, password, fullname, phone, address) {
