@@ -1,34 +1,63 @@
-const { Pool } = require("pg");
-require("dotenv").config();
+const express = require("express");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const passport = require("passport");
 
-const pool = new Pool({
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  database: process.env.DB_NAME,
+// Đường dẫn đúng: lên 1 cấp (../) để ra khỏi routes, vào models
+const { createUser, findUserByEmail } = require("../models/userModels");
+
+const router = express.Router();
+
+router.post("/register", async (req, res) => {
+  const { email, password, fullname, phone, address } = req.body;
+  try {
+    const existing = await findUserByEmail(email);
+    if (existing)
+      return res.status(400).json({ error: "Email already exists" });
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = await createUser(
+      email,
+      hashedPassword,
+      fullname,
+      phone,
+      address,
+      null, // dob nếu có thì truyền vào
+    );
+    res.json({ success: true, userId: newUser.id });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
 });
 
-// Tạo user mới
-const createUser = async (
-  email,
-  passwordHash,
-  fullname,
-  phone = null,
-  address = null,
-  dob = null,
-) => {
-  const query = `INSERT INTO users (email, password, fullname, phone, address, dob, role) 
-                 VALUES ($1, $2, $3, $4, $5, $6, 'user') RETURNING id`;
-  const values = [email, passwordHash, fullname, phone, address, dob];
-  const res = await pool.query(query, values);
-  return res.rows[0];
-};
+router.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    const user = await findUserByEmail(email);
+    if (!user) return res.status(401).json({ error: "Invalid credentials" });
 
-// Tìm user theo email
-const findUserByEmail = async (email) => {
-  const res = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
-  return res.rows[0];
-};
+    const match = await bcrypt.compare(password, user.password);
+    if (!match) return res.status(401).json({ error: "Invalid credentials" });
 
-module.exports = { createUser, findUserByEmail };
+    const token = jwt.sign(
+      { id: user.id, email: user.email, role: user.role },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" },
+    );
+    res.json({ success: true, token });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
+// Logout route – nếu dùng passport local, cần passport.authenticate trước
+router.get("/logout", (req, res) => {
+  req.logout((err) => {
+    if (err) return next(err);
+    res.redirect("/Login page/Login.html");
+  });
+});
+
+module.exports = router;
